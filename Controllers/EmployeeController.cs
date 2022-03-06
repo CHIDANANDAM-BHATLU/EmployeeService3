@@ -10,19 +10,19 @@ namespace EmployeeService3.Controllers
 {
     public class EmployeeController : ApiController
     {
-        public IEnumerable<Employee> GetEmployees()
+        public IEnumerable<Employee> GetEmployee()
         {
-            using(EmployeeEntities employeeEntities = new EmployeeEntities())
+            using(EmployeeEntities ee = new EmployeeEntities())
             {
-                return employeeEntities.Employees.ToList();
+                return ee.Employees.ToList();
             }
         }
-
+        
         public Employee GetEmployee(int id)
         {
-            using(EmployeeEntities employeeEntities = new EmployeeEntities())
+            using(EmployeeEntities ef = new EmployeeEntities())
             {
-                return employeeEntities.Employees.FirstOrDefault(e => e.ID == id);
+                return ef.Employees.FirstOrDefault(e => e.ID == id);
             }
         }
     }
